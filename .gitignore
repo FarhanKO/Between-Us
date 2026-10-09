@@ -1,0 +1,8 @@
+.env
+.env.local
+node_modules/
+.next/
+target/
+dist/
+desktop/src-tauri/gen/schemas/
+desktop/app-icon.svg
