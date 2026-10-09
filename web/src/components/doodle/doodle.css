@@ -1,0 +1,44 @@
+/* Shared by the web app and the desktop pet (imported through the @doodle alias).
+   Only relies on --border / --card / --muted / --accent-strong / --accent-soft, which both define. */
+
+.doodle-canvas { display: flex; flex-direction: column; gap: 0.5rem; }
+.doodle-canvas__surface {
+  display: block; width: 100%; max-width: 420px; aspect-ratio: 1; margin: 0 auto;
+  border-radius: 1rem; border: 1px solid var(--border);
+  background: #fff9fb; cursor: crosshair; user-select: none; -webkit-user-select: none;
+}
+.doodle-canvas__tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.doodle-canvas__colors { display: flex; gap: 0.35rem; }
+.doodle-swatch {
+  width: 26px; height: 26px; border-radius: 999px; border: 2px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08); transition: transform 0.12s;
+}
+.doodle-swatch.is-active { border-color: var(--accent-strong); transform: scale(1.18); }
+.doodle-canvas__sizes { display: flex; gap: 0.25rem; }
+.doodle-size {
+  width: 30px; height: 30px; border-radius: 0.6rem; border: 1px solid var(--border);
+  display: grid; place-items: center; background: var(--card);
+}
+.doodle-size span { display: block; border-radius: 999px; }
+.doodle-size.is-active { border-color: var(--accent-strong); background: var(--accent-soft); }
+.doodle-canvas__actions { display: flex; gap: 0.35rem; margin-left: auto; }
+.doodle-tool {
+  font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--muted); background: var(--card);
+}
+.doodle-tool:disabled { opacity: 0.4; }
+.doodle-canvas__hint { font-size: 0.7rem; color: var(--muted); }
+
+.doodle-replay { position: relative; width: 100%; aspect-ratio: 1; }
+.doodle-replay__svg { display: block; width: 100%; height: 100%; border-radius: 1rem; border: 1px solid var(--border); }
+.doodle-replay__pen {
+  fill: var(--accent-strong); opacity: 0.85;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+}
+.doodle-replay__btn {
+  position: absolute; right: 8px; bottom: 8px; width: 34px; height: 34px;
+  border-radius: 999px; border: 1px solid var(--border);
+  background: var(--card); color: var(--accent-strong); font-size: 1.05rem; line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); cursor: pointer;
+}
+.doodle-replay__btn:hover { background: var(--accent-soft); }
